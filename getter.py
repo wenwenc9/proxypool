@@ -10,7 +10,9 @@ import time
 
 
 class IpProxyMeta(type):
-
+    """
+    继承python所有类的祖宗，即自定义元类
+    """
     def __new__(cls, name, bases, attrs):
         # protocol 协议 指定为http还是https、scoks5
         attrs['__Protocol_Func__'] = []
@@ -87,7 +89,6 @@ class IpProxyGetter(metaclass=IpProxyMeta):
 
 if __name__ == '__main__':
     f = IpProxyGetter()
-    # # print(f.__dir__())
+    print(f.__dir__())
     # print(f.__Protocol_Func__)
-
-    print(IpProxyGetter().protocol_http())
+    # print(IpProxyGetter().protocol_http())

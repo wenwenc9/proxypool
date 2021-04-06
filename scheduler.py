@@ -15,7 +15,7 @@ import logging
     功能：调度器
     包含：
         ---添加器：从代理服务器获取IP,传给校验器
-        ---校验器：校验IP是否过期,校验成功存储到redis  [可扩张性]
+        ---校验器：校验IP是否过期,校验成功存储到redis  [可扩展性]
 """
 
 
@@ -129,8 +129,7 @@ class PoolAdder(object):
                         # 使用校验器校验，是否过期
                         self.__tester.set_raw_proxies(proxies)  # 放入材料
                         self.__tester.verify_check_switch()  # 开启机器（开启校验方法）
-            if proxy_count == 0:  # TODO
-
+            if proxy_count == 0:  #
                 # 判出一个运行时间的异常
                 raise RuntimeError('获取代理时间过快，可忽略此异常！')
 
