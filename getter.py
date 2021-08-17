@@ -80,9 +80,9 @@ class IpProxyGetter(metaclass=IpProxyMeta):
                 ip = i['ip'] + ":" + str(i['port'])
                 res = {"ip": "{}".format(ip), "expire_time": "{}".format(i['expire_time']), "types": "https",
                        "use_num": '0'}
-                # proxies.append(res)
-                yield res
-            # return proxies
+                proxies.append(res)
+                # yield res
+            return proxies
         return None
 
 
